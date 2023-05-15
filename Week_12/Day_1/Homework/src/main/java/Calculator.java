@@ -13,8 +13,7 @@ public class Calculator {
     }
 
     public double divide(double value1, double value2){
-//        return (value1/value2);
         double result = (value2 == 0.0) ? 0.0 : (value1 / value2);
-        return result;
+        return (result);
     }
 }
