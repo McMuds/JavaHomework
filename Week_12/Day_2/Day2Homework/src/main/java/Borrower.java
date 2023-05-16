@@ -14,9 +14,8 @@ public class Borrower {
     }
 
     public void borrowBook(Book book, Library library){
-        if (library.hasBook(book)){
+        if (library.lendBook(book)) {
             this.collection.add(book);
-            library.lendBook(book);
         }
     }
 
