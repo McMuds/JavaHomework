@@ -20,4 +20,12 @@ public class Library {
     public int countBooks(){
         return this.libraryBooks.size();
     }
+
+    public void lendBook(Book book){
+        this.libraryBooks.remove(book);
+    }
+
+    public Boolean hasBook(Book book){
+        return this.libraryBooks.contains(book);
+    }
 }
