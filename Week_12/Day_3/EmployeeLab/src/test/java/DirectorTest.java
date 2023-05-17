@@ -45,4 +45,13 @@ public class DirectorTest {
     public void canRetrieveRaise(){
         assertEquals(1690.00, director.payBonus(), 0.0);
     }
+    @Test
+    public void canChangeName(){
+        director.setName("Claire");
+        assertEquals("Claire", director.getName());
+    }    @Test
+    public void canNotChangeName_Null(){
+        director.setName(null);
+        assertEquals("Bill Douglas", director.getName());
+    }
 }

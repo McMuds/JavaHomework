@@ -37,6 +37,15 @@ public class DeveloperTest {
     public void canRetrieveRaise(){
         assertEquals(600.00, devDude.payBonus(), 0.01);
     }
+    @Test
+    public void canChangeName(){
+        devDude.setName("Claire");
+        assertEquals("Claire", devDude.getName());
+    }    @Test
+    public void canNotChangeName_Null(){
+        devDude.setName(null);
+        assertEquals("Kev Ryan", devDude.getName());
+    }
 }
 
 

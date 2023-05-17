@@ -40,4 +40,13 @@ public class ManagerTest {
     public void canRetrieveRaise(){
         assertEquals(690.00, manager.payBonus(), 0.0);
     }
+    @Test
+    public void canChangeName(){
+        manager.setName("Claire");
+        assertEquals("Claire", manager.getName());
+    }    @Test
+    public void canNotChangeName_Null(){
+        manager.setName(null);
+        assertEquals("Eric", manager.getName());
+    }
 }

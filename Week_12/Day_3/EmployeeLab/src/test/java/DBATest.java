@@ -36,4 +36,13 @@ public class DBATest {
     public void canRetrieveRaise(){
         assertEquals(500.00, dbaDude.payBonus(), 0.01);
     }
+    @Test
+    public void canChangeName(){
+        dbaDude.setName("Claire");
+        assertEquals("Claire", dbaDude.getName());
+    }    @Test
+    public void canNotChangeName_Null(){
+        dbaDude.setName(null);
+        assertEquals("Andy Green", dbaDude.getName());
+    }
 }
