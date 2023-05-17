@@ -23,7 +23,6 @@ public class BorrowerTest {
     public void hasName(){
         assertEquals("Claire", customer1.getName());
     }
-
     @Test
     public void canBorrowBook_Borrower(){
         customer1.borrowBook(book, library);

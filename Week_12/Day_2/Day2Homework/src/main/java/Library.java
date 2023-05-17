@@ -22,6 +22,7 @@ public class Library {
         if (countBooks() < this.capacity){
             this.libraryBooks.add(book);
             this.genreMap.put(book.getGenre(), currentCount + 1);
+            this.genreMap.replace(book.getGenre(), currentCount + 1);
         }
     }
 
@@ -31,8 +32,10 @@ public class Library {
 
     public Boolean lendBook(Book book){
         if (hasBook(book)){
+            String genre = book.getGenre();
             this.libraryBooks.remove(book);
-            this.genreMap.put(book.getGenre(), this.genreMap.get(book.getGenre()) - 1);
+//            this.genreMap.put(book.getGenre(), this.genreMap.get(book.getGenre()) - 1);
+            this.genreMap.replace(genre, this.genreMap.get(genre) - 1);
             return true;
         }
         return false;

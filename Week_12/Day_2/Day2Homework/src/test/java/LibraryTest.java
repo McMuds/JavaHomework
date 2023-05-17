@@ -14,13 +14,11 @@ public class LibraryTest {
         book2 = new Book("YA", "Suzanne Collins", "The Hunger Games");
         library1 = new Library("Claire's Library", 2);
     }
-
     @Test
     public void canAddBooksToLibrary(){
         library1.addBook(book1);
         assertEquals(1, library1.countBooks());
     }
-
     @Test
     public void willNotAddIfLibraryFull(){
         library1.addBook(book1);
@@ -33,7 +31,6 @@ public class LibraryTest {
         library1.addBook(book1);
         assertEquals(true,library1.lendBook(book1));
     }
-
     @Test
     public void hashMapChanges_AddSingleGenre(){
         library1.addBook(book1);
