@@ -6,33 +6,33 @@ import static org.junit.Assert.assertEquals;
 
 public class DeveloperTest {
 
-        Developer devDude;
+    Developer devDude;
 
-        @Before
-        public void before(){
-            devDude = new Developer("Kev Ryan", "XD652376C", 60000.99);
-        }
-        @Test
-        public void hasName(){
-            assertEquals("Kev Ryan", devDude.getName());
-        }
-        @Test
-        public void hasNINO(){
-            assertEquals("XD652376C", devDude.getNINO());
-        }
-        @Test
-        public void hasSalary(){
-            assertEquals(60000.99, devDude.getSalary(),0.0);
-        }
-        @Test
-        public void canRaiseSalary(){
-            devDude.raiseSalary(1500.00);
-            assertEquals(61500.99, devDude.getSalary(), 0.0);
-        }
-        @Test
-        public void canRetrieveRaise(){
-            assertEquals(600.00, devDude.payBonus(), 0.01);
-        }
+    @Before
+    public void before(){
+        devDude = new Developer("Kev Ryan", "XD652376C", 60000.99);
+    }
+    @Test
+    public void hasName(){
+        assertEquals("Kev Ryan", devDude.getName());
+    }
+    @Test
+    public void hasNINO(){
+        assertEquals("XD652376C", devDude.getNINO());
+    }
+    @Test
+    public void hasSalary(){
+        assertEquals(60000.99, devDude.getSalary(),0.0);
+    }
+    @Test
+    public void canRaiseSalary(){
+        devDude.raiseSalary(1500.00);
+        assertEquals(61500.99, devDude.getSalary(), 0.0);
+    }
+    @Test
+    public void canRetrieveRaise(){
+        assertEquals(600.00, devDude.payBonus(), 0.01);
+    }
 }
 
 
