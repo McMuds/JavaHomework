@@ -1,3 +1,4 @@
+//import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,7 +20,7 @@ public class Library {
         if (genreMap.containsKey(book.getGenre())) {
             currentCount = genreMap.get(book.getGenre());
         }
-        if (countBooks() < this.capacity){
+        if (hasCapacity()){
             this.libraryBooks.add(book);
             this.genreMap.put(book.getGenre(), currentCount + 1);
             this.genreMap.replace(book.getGenre(), currentCount + 1);
@@ -28,6 +29,10 @@ public class Library {
 
     public int countBooks(){
         return this.libraryBooks.size();
+    }
+
+    public Boolean hasCapacity(){
+        return countBooks() < this.capacity;
     }
 
     public Boolean lendBook(Book book){
@@ -50,6 +55,12 @@ public class Library {
             return this.genreMap.get(genre);
         }
         return 0;
+    }
+
+    public void doFullGenreStockCheck(){
+        for (Book book : this.libraryBooks){
+            this.genreMap.put(book.getGenre(), getGenreCount(book.getGenre()) + 1 );
+        }
     }
 
 }

@@ -57,4 +57,20 @@ public class LibraryTest {
         library1.addBook(book1);
         assertEquals(1, library1.getGenreCount("Horror"));
     }
+
+    @Test
+    public void showsCapacityExists(){
+        library1.addBook(book1);
+        assertEquals(true, library1.hasCapacity());
+    }
+
+    @Test
+    public void showsNoCapacity(){
+        library1.addBook(book1);
+        library1.addBook(book1);
+        assertEquals(false, library1.hasCapacity());
+    }
+
+
+
 }
