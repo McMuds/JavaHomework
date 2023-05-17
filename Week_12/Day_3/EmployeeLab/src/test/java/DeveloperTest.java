@@ -28,6 +28,10 @@ public class DeveloperTest {
     public void canRaiseSalary(){
         devDude.raiseSalary(1500.00);
         assertEquals(61500.99, devDude.getSalary(), 0.0);
+    }    @Test
+    public void canNotRaiseSalary_Negative(){
+        devDude.raiseSalary(-1500.00);
+        assertEquals(60000.99, devDude.getSalary(), 0.0);
     }
     @Test
     public void canRetrieveRaise(){

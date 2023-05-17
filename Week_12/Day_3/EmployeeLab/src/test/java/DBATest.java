@@ -27,6 +27,10 @@ public class DBATest {
     public void canRaiseSalary(){
         dbaDude.raiseSalary(1500.00);
         assertEquals(51500.99, dbaDude.getSalary(), 0.0);
+    }    @Test
+    public void canNotRaiseSalary_Negative(){
+        dbaDude.raiseSalary(-1500.00);
+        assertEquals(50000.99, dbaDude.getSalary(), 0.0);
     }
     @Test
     public void canRetrieveRaise(){
