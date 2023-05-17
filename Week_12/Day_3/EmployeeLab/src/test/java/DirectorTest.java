@@ -43,7 +43,7 @@ public class DirectorTest {
     }
     @Test
     public void canRetrieveRaise(){
-        assertEquals(1690.00, director.payBonus(), 0.0);
+        assertEquals(3380.00, director.payBonus(), 0.0);
     }
     @Test
     public void canChangeName(){
