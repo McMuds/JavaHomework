@@ -28,7 +28,6 @@ public class LibraryTest {
         library1.addBook(book1);
         assertEquals(2, library1.countBooks());
     }
-
     @Test
     public void canLendOutBook(){
         library1.addBook(book1);
@@ -51,6 +50,14 @@ public class LibraryTest {
         library1.addBook(book1);
         library1.addBook(book1);
         library1.lendBook(book1);
+        assertEquals(1, library1.getGenreCount("Horror"));
+    }
+
+    @Test
+    public void willNotAddIfLibraryFull_Genre(){
+        library1.addBook(book1);
+        library1.addBook(book2);
+        library1.addBook(book1);
         assertEquals(1, library1.getGenreCount("Horror"));
     }
 }
