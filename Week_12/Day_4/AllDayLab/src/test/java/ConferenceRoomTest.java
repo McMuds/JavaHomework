@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 
 public class ConferenceRoomTest {
 
-    ConferenceRoom conferenceRoom;
-    Guest guest1;
-    Guest guest2;
-    ArrayList<Guest> listOfGuests;
+    private ConferenceRoom conferenceRoom;
+    private Guest guest1;
+    private Guest guest2;
+    private ArrayList<Guest> listOfGuests;
 
     @Before
     public void before() {

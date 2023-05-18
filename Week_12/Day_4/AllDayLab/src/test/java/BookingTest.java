@@ -10,13 +10,13 @@ import static org.junit.Assert.assertEquals;
 
 public class BookingTest {
 
-    Booking booking;
-    Bedroom bedroom;
-    Guest guest;
-    ArrayList<Guest> listOfGuests;
-    Hotel ourHotel;
-    HashMap<Integer, Bedroom> listOfBedrooms;
-    ArrayList<ConferenceRoom> listOfConferenceRooms;
+    private Booking booking;
+    private Bedroom bedroom;
+    private Guest guest;
+    private ArrayList<Guest> listOfGuests;
+    private Hotel ourHotel;
+    private HashMap<Integer, Bedroom> listOfBedrooms;
+    private ArrayList<ConferenceRoom> listOfConferenceRooms;
 
     @Before
     public void before(){

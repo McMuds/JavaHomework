@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 
 public class GuestTest {
 
-    Guest guest1;
-    Guest guest2;
+    private Guest guest1;
+    private Guest guest2;
 
     @Before
     public void before(){
