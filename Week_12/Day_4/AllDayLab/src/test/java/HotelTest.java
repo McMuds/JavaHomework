@@ -11,6 +11,7 @@ public class HotelTest {
     private Bedroom bedroom1;
     private Bedroom bedroom2;
     private Guest guest;
+    private Guest guest2;
     private ArrayList<Guest> listOfGuests1;
     private ArrayList<Guest> listOfGuests2;
     private Hotel ourHotel;
@@ -20,6 +21,7 @@ public class HotelTest {
     @Before
     public void before(){
         guest = new Guest("Mar");
+        guest2 = new Guest("Sky");
         listOfGuests1 = new ArrayList<>();
         listOfGuests2 = new ArrayList<>();
         bedroom1 = new Bedroom(13, listOfGuests1, RoomType.SINGLE, 60.0);
@@ -39,6 +41,14 @@ public class HotelTest {
         //Act
         assertEquals(1, ourHotel.findEmptyRooms().size());
         assertEquals(bedroom2, ourHotel.findEmptyRooms().get(bedroom2.getRoomNumber()));
+    }
+    @Test
+    public void canNotCheckIntoNonEmptyRooms(){
+        //Arrange
+        ourHotel.checkInGuest(bedroom1, guest);
+        ourHotel.checkInGuest(bedroom1, guest2);
+        //Act
+        assertEquals(1, bedroom1.countOccupants());
     }
 
 }

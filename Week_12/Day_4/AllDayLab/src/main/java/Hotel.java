@@ -24,17 +24,13 @@ public class Hotel {
         return conferenceRooms;
     }
     public void checkInGuest(Room room, Guest guest){
-//        if (room instanceof Bedroom){
-//            Bedroom bedroom = (Bedroom) room;
-//            bedroom.addGuest(guest);
-//        } else {
-//            if (room instanceof ConferenceRoom){
-//                ConferenceRoom conferenceRoom = (ConferenceRoom) room;
-//                conferenceRoom.addGuest(guest);
-//            }
-//        }
-        room.addGuest(guest);
-
+        if (room.getCapacity() > room.countOccupants()) {
+            if (room instanceof Bedroom && room.countOccupants() != 0){
+                //do nothing
+            } else {
+                room.addGuest(guest);
+            }
+        }
     }
 
     public Booking bookRoom(Bedroom bedroom, int numberOfNights){
