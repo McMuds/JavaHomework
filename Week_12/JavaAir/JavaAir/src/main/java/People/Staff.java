@@ -7,6 +7,7 @@ public abstract class Staff extends Person{
         super(staffName);
         this.rank = staffRank;
     }
-
-
+    public RankType getRank() {
+        return rank;
+    }
 }

@@ -21,4 +21,9 @@ public class CabinCrewTest {
         assertEquals("Polly Purser", purser1.getName());
     }
 
+    @Test
+    public void ccHasType(){
+        assertEquals(RankType.PURSER, purser1.getRank());
+    }
+
 }
