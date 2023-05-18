@@ -1,3 +1,4 @@
+import Rooms.ConferenceRoom;
 import org.junit.Before;
 import org.junit.Test;
 

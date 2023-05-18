@@ -1,6 +1,8 @@
+package Rooms;
+
 import java.util.ArrayList;
 
-public class ConferenceRoom extends Room{
+public class ConferenceRoom extends Room {
 
     String name;
 

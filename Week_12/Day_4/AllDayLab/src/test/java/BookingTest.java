@@ -1,8 +1,10 @@
+import Rooms.Bedroom;
+import Rooms.ConferenceRoom;
+import Rooms.RoomType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.HashMap;
 

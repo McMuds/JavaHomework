@@ -1,6 +1,8 @@
+package Rooms;
+
 import java.util.ArrayList;
 
-public class Bedroom extends Room{
+public class Bedroom extends Room {
     RoomType roomType;
     int roomNumber;
     Double nightlyRate;
