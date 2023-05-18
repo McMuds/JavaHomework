@@ -22,8 +22,6 @@ public class Hotel {
     public ArrayList<ConferenceRoom> getConferenceRooms() {
         return conferenceRooms;
     }
-
-
     public void checkInGuest(Room room, Guest guest){
         if (room instanceof Bedroom){
             Bedroom bedroom = (Bedroom) room;
@@ -34,5 +32,10 @@ public class Hotel {
                 conferenceRoom.addGuest(guest);
             }
         }
+    }
+
+    public Booking bookRoom(Bedroom bedroom, int numberOfNights){
+        Booking booking = new Booking(bedroom, numberOfNights);
+        return booking;
     }
 }

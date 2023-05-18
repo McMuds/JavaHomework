@@ -17,7 +17,7 @@ public class BedroomTest {
             ArrayList<Guest> listOfGuests = new ArrayList<>();
             listOfGuests.add(guest1);
             listOfGuests.add(guest2);
-            bedroom1 = new Bedroom(13, listOfGuests, RoomType.DOUBLE);
+            bedroom1 = new Bedroom(13, listOfGuests, RoomType.DOUBLE, 50.00) ;
         }
 
         @Test
@@ -33,8 +33,13 @@ public class BedroomTest {
         @Test
         public void canAddGuest(){
             ArrayList<Guest> listOfGuests = new ArrayList<>();
-            Bedroom bedroom2 = new Bedroom(13, listOfGuests, RoomType.DOUBLE);
+            Bedroom bedroom2 = new Bedroom(13, listOfGuests, RoomType.DOUBLE, 60.00);
             bedroom2.addGuest(guest1);
             assertEquals(1, bedroom2.countOccupants() );
+        }
+
+        @Test
+        public void hasNightlyRate(){
+            assertEquals(50.00, bedroom1.getNightlyRate(), 0.0);
         }
     }
