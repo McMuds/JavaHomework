@@ -35,6 +35,9 @@ public class Flight {
     public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
+    public int getPassengerCount(){
+        return passengers.size();
+    }
     public Plane getPlane() {
         return plane;
     }
@@ -52,5 +55,8 @@ public class Flight {
     }
     public void addPassengers(Passenger passenger) {
         this.passengers.add(passenger);
+    }
+    public Boolean flightHasCapacity(){
+        return getPassengerCount() < getPlane().getPassengerCapacityFromEnum();
     }
 }
