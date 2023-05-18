@@ -1,5 +1,3 @@
-package Rooms;
-
 import java.util.ArrayList;
 
 public class Bedroom extends Room {

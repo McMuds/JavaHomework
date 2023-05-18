@@ -1,5 +1,3 @@
-import Rooms.Bedroom;
-
 public class Booking {
     private Bedroom bedroom;
     private int numOfNights;
