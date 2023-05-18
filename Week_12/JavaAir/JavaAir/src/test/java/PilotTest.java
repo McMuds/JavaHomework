@@ -12,11 +12,14 @@ public class PilotTest {
 
     @Before
     public void before(){
-        pilot1 = new Pilot("Sully", RankType.CAPTAIN);
+        pilot1 = new Pilot("Sully", RankType.CAPTAIN, "9300104GB67");
     }
-
     @Test
     public void pilotHasName(){
         assertEquals("Sully", pilot1.getName());
+    }
+    @Test
+    public void pilotHasLicenceNumber() {
+        assertEquals("9300104GB67", pilot1.getLicenceNumber());
     }
 }
