@@ -1,9 +1,9 @@
 package staff;
 
 public abstract class Employee {
-    protected String name;
-    protected String NINO;
-    protected Double salary;
+    private String name;
+    private String NINO;
+    private Double salary;
 
     public Employee(String name, String NINO, Double salary){
         this.name = name;
