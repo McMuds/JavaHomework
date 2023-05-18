@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.awt.print.Book;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,7 +15,7 @@ public class BookingTest {
     Guest guest;
     ArrayList<Guest> listOfGuests;
     Hotel ourHotel;
-    ArrayList<Bedroom> listOfBedrooms;
+    HashMap<Integer, Bedroom> listOfBedrooms;
     ArrayList<ConferenceRoom> listOfConferenceRooms;
 
     @Before
@@ -24,9 +25,9 @@ public class BookingTest {
 //        listOfGuests.add(guest);
         bedroom = new Bedroom(13, listOfGuests, RoomType.SINGLE, 60.0);
         booking = new Booking(bedroom, 4);
-        listOfBedrooms = new ArrayList<>();
+        listOfBedrooms = new HashMap<>();
         listOfConferenceRooms = new ArrayList<>();
-        listOfBedrooms.add(bedroom);
+        listOfBedrooms.put(bedroom.getRoomNumber(), bedroom);
         ourHotel = new Hotel("The Ritz", listOfBedrooms, listOfConferenceRooms);
     }
 
