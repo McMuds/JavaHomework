@@ -64,6 +64,7 @@ public class Flight {
         if (flightHasCapacity() && FlightManager.decideIfPassengerCanFit(this, passenger)) {
             this.passengers.add(passenger);
             passenger.setFlight(this);
+            passenger.setSeatNumber(getRandomSeatNumber());
         }
     }
     public Boolean flightHasCapacity(){
@@ -71,5 +72,12 @@ public class Flight {
     }
     public int getAvailableSeatCount(){
         return getPlane().getPassengerCapacityFromEnum() - getPassengerCount();
+    }
+
+    public int getRandomSeatNumber(){
+        int numberOfSeats = this.getPlane().getPassengerCapacityFromEnum();
+        int seatNumber;
+        seatNumber = (int) (Math.random() * (numberOfSeats + 1));
+        return seatNumber;
     }
 }

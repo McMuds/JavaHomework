@@ -112,5 +112,10 @@ public class FlightTest {
         cessnaFlight.addPassengers(passenger1);
         assertEquals("EZY313", passenger1.getFlight().getFlightNumber());
     }
-
+    @Test
+    public void passengerHasSeatNumber(){
+        cessnaFlight.addPassengers(passenger4);
+        int result = passenger4.getSeatNumber();
+        assertEquals(1, (result / result));
+    }
 }
