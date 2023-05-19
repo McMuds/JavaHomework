@@ -26,4 +26,16 @@ public class CabinCrewTest {
         assertEquals(RankType.PURSER, purser1.getRank());
     }
 
+    @Test
+    public void ccCanRelayMessage_populated(){
+        assertEquals("Here is a message: Hello!", purser1.relayMessage("Hello!"));
+    }
+    @Test
+    public void ccCanRelayMessage_empty(){
+        assertEquals("Here is a message: ", purser1.relayMessage(""));
+    }
+    @Test
+    public void ccCanRelayMessage_null(){
+        assertEquals("Here is a message: ", purser1.relayMessage(null));
+    }
 }
