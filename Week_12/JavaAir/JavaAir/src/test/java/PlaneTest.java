@@ -1,3 +1,5 @@
+import NonPeople.Plane;
+import Enums.PlaneType;
 import org.junit.Before;
 import org.junit.Test;
 

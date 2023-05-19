@@ -1,5 +1,7 @@
 package People;
 
+import Enums.RankType;
+
 public class CabinCrew extends Staff{
 
     public CabinCrew(String ccName, RankType ccRank){

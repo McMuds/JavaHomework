@@ -1,3 +1,4 @@
+import Enums.BaggageType;
 import People.Passenger;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,7 @@ public class PassengerTest {
 
     @Before
     public void before(){
-        passenger1 = new Passenger("Claire", 4);
+        passenger1 = new Passenger("Claire", 4, BaggageType.SMALL);
     }
 
     @Test

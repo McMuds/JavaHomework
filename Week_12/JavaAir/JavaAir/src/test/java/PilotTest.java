@@ -1,4 +1,4 @@
-import People.RankType;
+import Enums.RankType;
 import People.Pilot;
 import org.junit.Before;
 import org.junit.Test;

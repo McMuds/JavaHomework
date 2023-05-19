@@ -1,6 +1,11 @@
+import Enums.BaggageType;
+import NonPeople.Airport;
+import NonPeople.Flight;
+import NonPeople.Plane;
+import Enums.PlaneType;
 import People.CabinCrew;
 import People.Passenger;
-import People.RankType;
+import Enums.RankType;
 import People.Pilot;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,9 +37,9 @@ public class FlightTest {
         Plane cessnaPlane = new Plane(PlaneType.CESSNA);
         cessnaFlight = new Flight(pilots, cabinCrew, cessnaPlane, "EZY313",
                 Airport.EDI, Airport.IOM, "09:00");
-        passenger1 = new Passenger("Claire", 3);
-        passenger2 = new Passenger("Fiona", 2);
-        passenger3 = new Passenger("Johan", 1);
+        passenger1 = new Passenger("Claire", 3, BaggageType.SMALL);
+        passenger2 = new Passenger("Fiona", 2, BaggageType.MEDIUM);
+        passenger3 = new Passenger("Johan", 1, BaggageType.OVERSIZE);
     }
 
     @Test
@@ -69,9 +74,9 @@ public class FlightTest {
     }
     //    @Test
 //    public void createFlightWithNoPilot_fail(){
-//        Plane cessnaPlane = new Plane(PlaneType.CESSNA);
-//        cessnaFlight = new Flight(null, cabinCrew, cessnaPlane, "EZY313",
-//                Airport.EDI, Airport.IOM, "09:00");
+//        NonPeople.Plane cessnaPlane = new NonPeople.Plane(Enums.PlaneType.CESSNA);
+//        cessnaFlight = new NonPeople.Flight(null, cabinCrew, cessnaPlane, "EZY313",
+//                NonPeople.Airport.EDI, NonPeople.Airport.IOM, "09:00");
 //        assertEquals("EZY313", cessnaFlight.getFlightNumber());
 //    }
 

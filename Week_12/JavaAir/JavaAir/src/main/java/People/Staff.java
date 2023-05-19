@@ -1,5 +1,7 @@
 package People;
 
+import Enums.RankType;
+
 public abstract class Staff extends Person{
     private RankType rank;
 

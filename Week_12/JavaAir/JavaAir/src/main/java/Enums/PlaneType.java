@@ -1,3 +1,5 @@
+package Enums;
+
 public enum PlaneType {
     BOEING747(30, 50),
     BOEING737(15,30),

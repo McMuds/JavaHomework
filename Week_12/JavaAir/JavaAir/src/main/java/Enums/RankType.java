@@ -1,4 +1,4 @@
-package People;
+package Enums;
 
 public enum RankType {
     CAPTAIN,

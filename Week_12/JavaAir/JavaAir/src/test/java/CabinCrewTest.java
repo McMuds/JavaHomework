@@ -1,5 +1,5 @@
 import People.CabinCrew;
-import People.RankType;
+import Enums.RankType;
 import org.junit.Before;
 import org.junit.Test;
 

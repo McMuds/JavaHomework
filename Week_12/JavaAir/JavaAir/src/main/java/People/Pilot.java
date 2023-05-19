@@ -1,5 +1,7 @@
 package People;
 
+import Enums.RankType;
+
 public class Pilot extends Staff{
 
     private String licenceNumber;

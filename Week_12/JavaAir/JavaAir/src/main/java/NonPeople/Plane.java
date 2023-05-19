@@ -1,3 +1,7 @@
+package NonPeople;
+
+import Enums.PlaneType;
+
 public class Plane {
 
     PlaneType planeType;

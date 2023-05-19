@@ -1,3 +1,5 @@
+package NonPeople;
+
 import People.CabinCrew;
 import People.Passenger;
 import People.Pilot;
