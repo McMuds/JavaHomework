@@ -10,4 +10,8 @@ public class Pilot extends Staff{
     public String getLicenceNumber() {
         return licenceNumber;
     }
+
+    public String flyThePlane(){
+        return "Wheeee!!! Look ma - no hands!";
+    }
 }
