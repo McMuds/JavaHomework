@@ -5,6 +5,7 @@ import People.Passenger;
 import People.Pilot;
 
 import java.util.ArrayList;
+import java.time.LocalTime;
 
 public class Flight {
     private ArrayList<Pilot> pilots;
@@ -14,11 +15,11 @@ public class Flight {
     private String flightNumber;
     private Airport destination;
     private Airport departingFrom;
-    private String departureTime;
+    private LocalTime departureTime;
     private Pilot pilot;
 
     public Flight(ArrayList<Pilot> pilots, ArrayList<CabinCrew> cabinCrewList, Plane plane,
-                  String flightNumber, Airport dest, Airport departure, String departureTime){
+                  String flightNumber, Airport dest, Airport departure, LocalTime departureTime){
         this.pilots = pilots;
         this.cabinCrewList = cabinCrewList;
         this.passengers = new ArrayList<>();
@@ -53,18 +54,21 @@ public class Flight {
     public Airport getDepartingFrom() {
         return departingFrom;
     }
-    public String getDepartureTime() {
+    public LocalTime getDepartureTime() {
         return departureTime;
     }
+    public void setDepartureTime(LocalTime departureTime) {
+        this.departureTime = departureTime;
+    }
     public void addPassengers(Passenger passenger) {
-        if (flightHasCapacity()) {
+        if (flightHasCapacity() && FlightManager.decideIfPassengerCanFit(this, passenger)) {
             this.passengers.add(passenger);
+            passenger.setFlight(this);
         }
     }
     public Boolean flightHasCapacity(){
         return (getAvailableSeatCount() > 0);
     }
-
     public int getAvailableSeatCount(){
         return getPlane().getPassengerCapacityFromEnum() - getPassengerCount();
     }

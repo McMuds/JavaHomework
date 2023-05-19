@@ -1,6 +1,7 @@
 package Enums;
 
 public enum BaggageType {
+    NONE(0),
     SMALL(4),
     MEDIUM(10),
     LARGE(15),

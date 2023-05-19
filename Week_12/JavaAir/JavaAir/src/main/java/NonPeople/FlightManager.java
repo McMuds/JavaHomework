@@ -25,4 +25,8 @@ public class FlightManager{
         return flight.getPlane().getBaggageCapacityFromEnum()
                 - calculateFlightPassengersBaggageWeight(flight);
     }
+
+    public static Boolean decideIfPassengerCanFit(Flight flight, Passenger passenger){
+        return getRemainingBaggageAllowance(flight) >= getPassengerWeightNeeds(passenger);
+    }
 }

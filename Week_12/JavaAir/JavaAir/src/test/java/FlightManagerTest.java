@@ -7,6 +7,10 @@ import NonPeople.Plane;
 import People.Passenger;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightManagerTest {
@@ -24,7 +28,7 @@ public class FlightManagerTest {
         passenger3 = new Passenger("Karen", 2, BaggageType.XLARGE);
         plane = new Plane(PlaneType.BOEING747);
         flight = new Flight(null, null, plane, "EZY432",
-                Airport.EDI, Airport.LHR, "08:00");
+                Airport.EDI, Airport.LHR, LocalTime.of(9,0,0));
     }
 
     @Test
@@ -56,5 +60,15 @@ public class FlightManagerTest {
         flight.addPassengers(passenger2);
         assertEquals(0,FlightManager.getRemainingBaggageAllowance(flight));
     }
-
+    @Test
+    public void canDecideIfPassengerCanFit(){
+        flight.addPassengers(passenger3);
+        assertEquals(true, FlightManager.decideIfPassengerCanFit(flight, passenger1));
+    }
+    @Test
+    public void canDecideIfPassengerCanFit_fail(){
+        plane = new Plane(PlaneType.CESSNA);
+        flight = new Flight(null, null, plane, null, null, null, null);
+        assertEquals(false, FlightManager.decideIfPassengerCanFit(flight, passenger3));
+    }
 }
