@@ -1,9 +1,9 @@
 package Enums;
 
 public enum PlaneType {
-    BOEING747(30, 50),
-    BOEING737(15,30),
-    CESSNA(2,5);
+    BOEING747(30, 80),
+    BOEING737(15,50),
+    CESSNA(2,10);
 
     private final int passengerCapacity;
     private final int baggageWeightLimit;

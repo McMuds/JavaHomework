@@ -20,4 +20,9 @@ public class FlightManager{
         return passenger.getTypeOfBags().getBaggageWeight()
                 * passenger.getNumberOfBags();
     }
+
+    public static int getRemainingBaggageAllowance(Flight flight){
+        return flight.getPlane().getBaggageCapacityFromEnum()
+                - calculateFlightPassengersBaggageWeight(flight);
+    }
 }

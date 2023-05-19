@@ -23,6 +23,6 @@ public class PlaneTest {
     }
     @Test
     public void planeHasWeightLimity(){
-        assertEquals(5, planeCessna.getBaggageCapacityFromEnum());
+        assertEquals(10, planeCessna.getBaggageCapacityFromEnum());
     }
 }

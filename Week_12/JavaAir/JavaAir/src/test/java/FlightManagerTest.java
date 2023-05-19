@@ -37,4 +37,24 @@ public class FlightManagerTest {
         flight.addPassengers(passenger1);
         assertEquals(8, FlightManager.calculateFlightPassengersBaggageWeight(flight));
     }
+
+    @Test
+    public void testGetRemainingBaggageAllowance(){
+        flight.addPassengers(passenger3);
+        flight.addPassengers(passenger1);
+        flight.addPassengers(passenger2);
+        assertEquals(16,FlightManager.getRemainingBaggageAllowance(flight));
+    }
+    @Test
+    public void testGetRemainingBaggageAllowance_empty(){
+        assertEquals(80,FlightManager.getRemainingBaggageAllowance(flight));
+    }
+    @Test
+    public void testGetRemainingBaggageAllowance_full(){
+        plane = new Plane(PlaneType.CESSNA);
+        flight = new Flight(null, null, plane, null, null, null, null);
+        flight.addPassengers(passenger2);
+        assertEquals(0,FlightManager.getRemainingBaggageAllowance(flight));
+    }
+
 }

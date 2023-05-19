@@ -48,7 +48,7 @@ public class FlightTest {
     }
     @Test
     public void canGetBagCapacity_empty(){
-        assertEquals(5, cessnaFlight.getPlane().getBaggageCapacityFromEnum());
+        assertEquals(10, cessnaFlight.getPlane().getBaggageCapacityFromEnum());
     }
     @Test
     public void canGetCountOfPassengers_partial(){
