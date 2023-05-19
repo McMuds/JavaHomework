@@ -15,16 +15,18 @@ public class FlightTest {
     Passenger passenger1;
     Passenger passenger2;
     Passenger passenger3;
+    ArrayList<Pilot> pilots;
+    ArrayList<CabinCrew> cabinCrew;
 
 
     @Before
     public void before(){
         Pilot pilot = new Pilot("Sully", RankType.CAPTAIN, "980103GB73");
-        ArrayList<Pilot> pilots = new ArrayList<>();
+        pilots = new ArrayList<>();
         pilots.add(pilot);
         CabinCrew cc1 = new CabinCrew("Polly", RankType.PURSER);
         CabinCrew cc2 = new CabinCrew("Samuel", RankType.FLIGHT_ATTENDANT);
-        ArrayList<CabinCrew> cabinCrew = new ArrayList<>();
+        cabinCrew = new ArrayList<>();
         cabinCrew.add(cc1);
         cabinCrew.add(cc2);
         Plane cessnaPlane = new Plane(PlaneType.CESSNA);
@@ -36,15 +38,15 @@ public class FlightTest {
     }
 
     @Test
-    public void canGetPassengerCapacity(){
+    public void canGetPassengerCapacity_empty(){
         assertEquals(2, cessnaFlight.getPlane().getPassengerCapacityFromEnum());
     }
     @Test
-    public void canGetBagCapacity(){
+    public void canGetBagCapacity_empty(){
         assertEquals(5, cessnaFlight.getPlane().getBaggageCapacityFromEnum());
     }
     @Test
-    public void canGetCountOfPassengers(){
+    public void canGetCountOfPassengers_partial(){
         cessnaFlight.addPassengers(passenger1);
         assertEquals(1, cessnaFlight.getPassengerCount());
     }
@@ -59,4 +61,46 @@ public class FlightTest {
         cessnaFlight.addPassengers(passenger3);
         assertEquals(false, cessnaFlight.flightHasCapacity());
     }
+    @Test
+    public void canBookFlight(){
+        cessnaFlight.addPassengers(passenger1);
+        assertEquals(1, cessnaFlight.getPassengerCount());
+        assertEquals("Claire", cessnaFlight.getPassengers().get(0).getName());
+    }
+    //    @Test
+//    public void createFlightWithNoPilot_fail(){
+//        Plane cessnaPlane = new Plane(PlaneType.CESSNA);
+//        cessnaFlight = new Flight(null, cabinCrew, cessnaPlane, "EZY313",
+//                Airport.EDI, Airport.IOM, "09:00");
+//        assertEquals("EZY313", cessnaFlight.getFlightNumber());
+//    }
+
+    @Test
+    public void flightCanReturnAvailableSeats_empty(){
+        assertEquals(2,cessnaFlight.getAvailableSeatCount());
+    }
+    @Test
+    public void flightCanReturnAvailableSeats(){
+        cessnaFlight.addPassengers(passenger2);
+        assertEquals(1,cessnaFlight.getAvailableSeatCount());
+    }
+    @Test
+    public void flightCanReturnAvailableSeats_full(){
+        cessnaFlight.addPassengers(passenger1);
+        cessnaFlight.addPassengers(passenger2);
+        assertEquals(0,cessnaFlight.getAvailableSeatCount());
+    }
+
+    @Test
+    public void cannotOverbookFlight(){
+        cessnaFlight.addPassengers(passenger1);
+        cessnaFlight.addPassengers(passenger2);
+        cessnaFlight.addPassengers(passenger3);
+        assertEquals(false, cessnaFlight.flightHasCapacity());
+        assertEquals(2, cessnaFlight.getPassengerCount());
+        assertEquals("Claire", cessnaFlight.getPassengers().get(0).getName());
+        assertEquals("Fiona", cessnaFlight.getPassengers().get(1).getName());
+    }
+
+
 }

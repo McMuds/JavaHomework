@@ -13,6 +13,7 @@ public class Flight {
     private Airport destination;
     private Airport departingFrom;
     private String departureTime;
+    private Pilot pilot;
 
     public Flight(ArrayList<Pilot> pilots, ArrayList<CabinCrew> cabinCrewList, Plane plane,
                   String flightNumber, Airport dest, Airport departure, String departureTime){
@@ -54,9 +55,15 @@ public class Flight {
         return departureTime;
     }
     public void addPassengers(Passenger passenger) {
-        this.passengers.add(passenger);
+        if (flightHasCapacity()) {
+            this.passengers.add(passenger);
+        }
     }
     public Boolean flightHasCapacity(){
-        return getPassengerCount() < getPlane().getPassengerCapacityFromEnum();
+        return (getAvailableSeatCount() > 0);
+    }
+
+    public int getAvailableSeatCount(){
+        return getPlane().getPassengerCapacityFromEnum() - getPassengerCount();
     }
 }
