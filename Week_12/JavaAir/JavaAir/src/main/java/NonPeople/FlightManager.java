@@ -11,9 +11,13 @@ public class FlightManager{
         ArrayList<Passenger> passengers = flight.getPassengers();
         int runningTotal = 0;
         for (Passenger passenger : passengers){
-            runningTotal += (passenger.getTypeOfBags().getBaggageWeight() *
-                    passenger.getNumberOfBags());
+            runningTotal += getPassengerWeightNeeds(passenger);
         }
         return runningTotal;
+    }
+
+    public static int getPassengerWeightNeeds(Passenger passenger){
+        return passenger.getTypeOfBags().getBaggageWeight()
+                * passenger.getNumberOfBags();
     }
 }

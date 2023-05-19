@@ -28,6 +28,11 @@ public class FlightManagerTest {
     }
 
     @Test
+    public void testPassengerWeightNeeds(){
+        assertEquals(46, FlightManager.getPassengerWeightNeeds(passenger3));
+    }
+
+    @Test
     public void testStaticFlightBaggageWeight(){
         flight.addPassengers(passenger1);
         assertEquals(8, FlightManager.calculateFlightPassengersBaggageWeight(flight));
