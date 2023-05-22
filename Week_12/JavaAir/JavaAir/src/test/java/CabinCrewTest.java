@@ -9,11 +9,13 @@ public class CabinCrewTest {
 
     CabinCrew purser1;
     CabinCrew flight_attendant;
+    String messagePrequel;
 
     @Before
     public void before(){
         purser1 = new CabinCrew("Polly Purser", RankType.PURSER);
         flight_attendant = new CabinCrew("Sam Mitchell", RankType.FLIGHT_ATTENDANT);
+        messagePrequel = "This is Polly Purser with a message from the cockpit: ";
     }
 
     @Test
@@ -28,14 +30,14 @@ public class CabinCrewTest {
 
     @Test
     public void ccCanRelayMessage_populated(){
-        assertEquals("Here is a message: Hello!", purser1.relayMessage("Hello!"));
+        assertEquals(messagePrequel + "Hello!", purser1.relayMessage("Hello!"));
     }
     @Test
     public void ccCanRelayMessage_empty(){
-        assertEquals("Here is a message: ", purser1.relayMessage(""));
+        assertEquals(messagePrequel, purser1.relayMessage(""));
     }
     @Test
     public void ccCanRelayMessage_null(){
-        assertEquals("Here is a message: ", purser1.relayMessage(null));
+        assertEquals(messagePrequel, purser1.relayMessage(null));
     }
 }

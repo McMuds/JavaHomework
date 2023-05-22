@@ -16,11 +16,9 @@ public class Passenger extends Person{
         this.flight = null;
         this.seatNumber = 0;
     }
-
     public int getNumberOfBags() {
         return numberOfBags;
     }
-
     public void setNumberOfBags(int numberOfBags) {
         this.numberOfBags = numberOfBags;
     }

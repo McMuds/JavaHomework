@@ -14,6 +14,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class FlightTest {
 
@@ -117,5 +118,24 @@ public class FlightTest {
         cessnaFlight.addPassengers(passenger4);
         int result = passenger4.getSeatNumber();
         assertEquals(1, (result / result));
+    }
+
+    @Test
+    public void passengersHaveDifferentSeatNumbers(){
+//        System.out.println("Randomiser Test from here on:"); //for testing
+        Plane bigPlane = new Plane(PlaneType.FOURSEATER);
+        cessnaFlight = new Flight(pilots, cabinCrew, bigPlane, "EZY313",
+                Airport.EDI, Airport.IOM, LocalTime.of(9, 0, 0));
+        cessnaFlight.addPassengers(passenger1);
+        cessnaFlight.addPassengers(passenger2);
+        cessnaFlight.addPassengers(passenger3);
+        cessnaFlight.addPassengers(passenger4);
+        assertNotEquals(passenger1.getSeatNumber(),passenger4.getSeatNumber());
+        assertNotEquals(passenger1.getSeatNumber(),passenger3.getSeatNumber());
+        assertNotEquals(passenger1.getSeatNumber(),passenger2.getSeatNumber());
+        assertNotEquals(passenger2.getSeatNumber(),passenger3.getSeatNumber());
+        assertNotEquals(passenger2.getSeatNumber(),passenger4.getSeatNumber());
+        assertNotEquals(passenger3.getSeatNumber(),passenger4.getSeatNumber());
+//        System.out.println("Randomiser Test ends:"); //for testing
     }
 }

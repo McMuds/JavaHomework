@@ -64,7 +64,14 @@ public class Flight {
         if (flightHasCapacity() && FlightManager.decideIfPassengerCanFit(this, passenger)) {
             this.passengers.add(passenger);
             passenger.setFlight(this);
-            passenger.setSeatNumber(getRandomSeatNumber());
+            int seatNumber = getRandomSeatNumber();
+            while (this.getOccupiedSeat(seatNumber)) {
+                seatNumber = getRandomSeatNumber();
+//                System.out.println(seatNumber);
+            }
+            passenger.setSeatNumber(seatNumber);
+            System.out.printf("Pass/Seat: %s %d \n",
+                    passenger.getName(), passenger.getSeatNumber());
         }
     }
     public Boolean flightHasCapacity(){
@@ -73,11 +80,19 @@ public class Flight {
     public int getAvailableSeatCount(){
         return getPlane().getPassengerCapacityFromEnum() - getPassengerCount();
     }
-
     public int getRandomSeatNumber(){
         int numberOfSeats = this.getPlane().getPassengerCapacityFromEnum();
         int seatNumber;
-        seatNumber = (int) (Math.random() * (numberOfSeats + 1));
+        Double randomNum = Math.random();
+        seatNumber = (int) (randomNum * (numberOfSeats)+1);
         return seatNumber;
+    }
+    public boolean getOccupiedSeat(int generatedSeatNumber) {
+        for (Passenger seatedPassenger : this.getPassengers()) {
+            if (seatedPassenger.getSeatNumber() == generatedSeatNumber) {
+                return true;
+            }
+        }
+        return false;
     }
 }

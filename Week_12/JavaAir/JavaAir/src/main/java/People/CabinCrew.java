@@ -9,7 +9,7 @@ public class CabinCrew extends Staff{
     }
 
     public String relayMessage(String message){
-        String result = "Here is a message: ";
+        String result = "This is " + this.getName() + " with a message from the cockpit: ";
         if (message != null){
             result += message;
         }
