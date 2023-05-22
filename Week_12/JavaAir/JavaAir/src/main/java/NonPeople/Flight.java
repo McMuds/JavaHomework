@@ -67,11 +67,11 @@ public class Flight {
             int seatNumber = getRandomSeatNumber();
             while (this.getOccupiedSeat(seatNumber)) {
                 seatNumber = getRandomSeatNumber();
-//                System.out.println(seatNumber);
+//                System.out.println(seatNumber);    //for testing
             }
             passenger.setSeatNumber(seatNumber);
-            System.out.printf("Pass/Seat: %s %d \n",
-                    passenger.getName(), passenger.getSeatNumber());
+//            System.out.printf("Pass/Seat: %s %d \n",   //for testing
+//                    passenger.getName(), passenger.getSeatNumber());   //for testing
         }
     }
     public Boolean flightHasCapacity(){
