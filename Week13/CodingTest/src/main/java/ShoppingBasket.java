@@ -83,7 +83,7 @@ public class ShoppingBasket {
         return previousTotal;
     }
     public Double loyaltyDiscount(Double previousTotal){
-        if(this.loyaltyCustomer){
+        if (getLoyaltyCustomer()){
             previousTotal = previousTotal * .98;
         }
         return previousTotal;

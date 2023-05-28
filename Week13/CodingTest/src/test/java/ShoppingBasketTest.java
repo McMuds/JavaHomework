@@ -80,4 +80,14 @@ public class ShoppingBasketTest {
     public void canApplyLoyaltyDiscount_noBigSpender(){
         assertEquals(10.77, loyaltyShoppingBasket.calculateValue(),0.09);
     }
+    @Test
+    public void canNotApplyLoyaltyDiscount_noBigSpender(){
+        unLoyalShoppingBasket.addItemToBasket(BasketItem.WINE, 2);
+        assertEquals(10.99, unLoyalShoppingBasket.calculateValue(), 0.09);
+    }
+    @Test
+    public void canNotApplyLoyaltyDiscount_bigSpender(){
+        unLoyalShoppingBasket.addItemToBasket(BasketItem.WINE, 4);
+        assertEquals(19.78, unLoyalShoppingBasket.calculateValue(), 0.09);
+    }
 }
