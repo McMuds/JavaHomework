@@ -13,6 +13,9 @@ public class FlightManager{
         for (Passenger passenger : passengers){
             runningTotal += getPassengerWeightNeeds(passenger);
         }
+//        int runningTotal = passengers.stream()
+//                .reduce(0,(accum, weight) -> accum + getPassengerWeightNeeds(pass))
+
         return runningTotal;
     }
 

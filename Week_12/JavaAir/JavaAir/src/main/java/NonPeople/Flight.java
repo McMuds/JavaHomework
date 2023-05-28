@@ -6,6 +6,7 @@ import People.Pilot;
 
 import java.util.ArrayList;
 import java.time.LocalTime;
+import java.util.stream.Collectors;
 
 public class Flight {
     private ArrayList<Pilot> pilots;
@@ -88,11 +89,16 @@ public class Flight {
         return seatNumber;
     }
     public boolean getOccupiedSeat(int generatedSeatNumber) {
-        for (Passenger seatedPassenger : this.getPassengers()) {
-            if (seatedPassenger.getSeatNumber() == generatedSeatNumber) {
-                return true;
-            }
-        }
-        return false;
+//        for (Passenger seatedPassenger : this.passengers) {
+//            if (seatedPassenger.getSeatNumber() == generatedSeatNumber) {
+//                return true;
+//            }
+//        }
+//        return false;
+        return this.passengers.stream()
+                .anyMatch(passenger -> passenger.getSeatNumber() == generatedSeatNumber);
+
+
+
     }
 }
