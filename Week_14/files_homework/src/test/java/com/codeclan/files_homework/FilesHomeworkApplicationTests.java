@@ -1,7 +1,9 @@
 package com.codeclan.files_homework;
 
+import com.codeclan.files_homework.models.File;
 import com.codeclan.files_homework.models.Folder;
 import com.codeclan.files_homework.models.Person;
+import com.codeclan.files_homework.repositories.FileRepository;
 import com.codeclan.files_homework.repositories.FolderRepository;
 import com.codeclan.files_homework.repositories.PersonRepository;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,9 @@ class FilesHomeworkApplicationTests {
 	@Autowired
 	FolderRepository folderRepository;
 
+	@Autowired
+	FileRepository fileRepository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -27,6 +32,8 @@ class FilesHomeworkApplicationTests {
 		personRepository.save(person);
 		Folder folder = new Folder("CodeClan_Work", person);
 		folderRepository.save(folder);
+		File file = new File("run_sql", ".py", 120, folder);
+		fileRepository.save(file);
 	}
 
 
