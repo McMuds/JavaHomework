@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PersonController {
@@ -23,7 +24,8 @@ public class PersonController {
 
     @GetMapping(value = "/persons/{id}")
     public ResponseEntity getPersonByID(@PathVariable Long id){
-        return new ResponseEntity(personRepository.findById(id), HttpStatus.OK);
+        Optional<Person> foundPerson = personRepository.findById(id);
+        return new ResponseEntity(foundPerson, HttpStatus.OK);
     }
 
     @PostMapping(value = "/persons")
