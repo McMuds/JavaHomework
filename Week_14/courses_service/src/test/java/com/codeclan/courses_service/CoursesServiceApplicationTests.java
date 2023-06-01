@@ -30,14 +30,19 @@ class CoursesServiceApplicationTests {
 
 	@Test
 	public void canSaveItems(){
-		courseRepository.deleteAll();
-		customerRepository.deleteAll();
-		bookingRepository.deleteAll();
-		Course course = new Course("Intro To JavaScript", "Edinburgh", 4);
+//		courseRepository.deleteAll();
+//		customerRepository.deleteAll();
+//		bookingRepository.deleteAll();
+		Date today = new Date(2023, 06, 15);
+		Course course = new Course("Intro To JavaScript"
+				, "Edinburgh"
+				, 4);
 		courseRepository.save(course);
-		Customer customer = new Customer("Claire McMurdo", "Edinburgh", 29);
+		Customer customer = new Customer("Claire McMurdo"
+				, "Edinburgh"
+				, 29);
 		customerRepository.save(customer);
-		Booking booking = new Booking(new Date(2023, 15, 06));
+		Booking booking = new Booking(today, course, customer);
 		bookingRepository.save(booking);
 	}
 }
