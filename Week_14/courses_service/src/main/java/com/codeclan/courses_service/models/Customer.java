@@ -1,4 +1,4 @@
-package models;
+package com.codeclan.courses_service.models;
 
 import javax.persistence.*;
 
