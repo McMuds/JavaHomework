@@ -9,10 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.codeclan.courses_service.repositories.CourseRepository;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Date;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class CoursesServiceApplicationTests {
 
 	@Autowired

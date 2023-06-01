@@ -1,5 +1,7 @@
 package com.codeclan.courses_service.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Customer {
     private String town;
     @Column(name = "customer_age")
     private int age;
+    @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
